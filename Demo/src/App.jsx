@@ -1,11 +1,12 @@
 
 import './App.css'
+import Map from './map'
 function App() {
 
 
   return (
     <>
-     <div id="navbar" >
+     {/* <div id="navbar" >
       <p id="logo">Webfolio X</p>
       <ul id='components'>
         <li>About</li>
@@ -20,8 +21,14 @@ function App() {
       <div id='btns'>
         <p>Get template</p>
         <p>Browse pages</p>
-      </div>
-     </div>
+      </div> */}
+     {/* </div> */}
+
+      <Map/>
+
+
+      <Map/>
+
     </>
   )
 }
