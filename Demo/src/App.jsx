@@ -23,11 +23,27 @@ function App() {
         <p>Browse pages</p>
       </div> */}
      {/* </div> */}
-
+{/* 
       <Map/>
 
 
-      <Map/>
+      <Map/> */}
+      <BrowserRouter>
+      <nav>
+        <Link to= "/">Home Page</Link>
+        <Link to= "/counter">Counter</Link>
+        <Link to= "/map">Map</Link>
+        <Link to= "/studmanager">Student Manager</Link>
+        <Link to= "/toggle">Toggle</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/studmanager" element={<StudentManager />} />
+        <Route path="/toggle" element={<Toggle />} />
+      </Routes>
+      </BrowserRouter>
 
     </>
   )
