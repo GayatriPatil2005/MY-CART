@@ -19,7 +19,10 @@ function App() {
   return (
   <>
     <Navbar/>
-    <ProductList products={product}/>
+    <main className='container mt-5'>
+      <ProductList productList={product}/>
+    </main>
+
    
   </>
     
