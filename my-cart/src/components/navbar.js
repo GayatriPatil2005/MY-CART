@@ -1,15 +1,12 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-
-class Navbar extends React.Component {
-    
-    render() { 
-        return (
-           
-  <nav className="navbar navbar-expand-lg bg-body-tertiary">
+export default function Navbar(props) {
+  return (
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
-      my-cart
+         {props.title}
     </a>
     <button
       aria-controls="navbarSupportedContent"
@@ -30,7 +27,7 @@ class Navbar extends React.Component {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            Link
+            {props.linkText}
           </a>
         </li>
         <li className="nav-item dropdown">
@@ -83,9 +80,10 @@ class Navbar extends React.Component {
     </div>
   </div>
 </nav>
-            
-        );
-    }
+  )
 }
- 
-export default Navbar ;
+
+
+Navbar.PropTypes = { title: PropTypes.string.isRequired,
+                    linkText: PropTypes.string.isRequired
+}
