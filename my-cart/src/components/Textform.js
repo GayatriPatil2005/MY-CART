@@ -3,9 +3,26 @@ import React, {useState} from 'react'
 
 
 export default function Textform(props) {
+
+
+   const[text,setText] = useState('');
+
+
    const handleUpClick = ()=>{
     //console.log("Uppercase was clicked " + text);
     let newText = text.toUpperCase();
+    setText(newText);
+   }
+
+    const handleLoClick = ()=>{
+    //console.log("Uppercase was clicked " + text);
+    let newText = text.toLowerCase();
+    setText(newText);
+   }
+
+   const handleClearClick = ()=>{
+    //console.log("Uppercase was clicked " + text);
+    let newText = " ";
     setText(newText);
    }
 
@@ -14,15 +31,11 @@ export default function Textform(props) {
     setText(event.target.value);
    }
 
-
-
-
-
-    const[text,setText] = useState('enter text here');
+   
     // text = "new text";  = wrong way to change state
     //setText("new text"); // correct way to change state
   return (
-    <div>
+    <div className='container'>
     <h1>{props.heading} - {text}</h1>
    <form className="row g-3">
   <div className="col-md-6">
@@ -92,13 +105,23 @@ export default function Textform(props) {
     <button type="submit" className="btn btn-primary">
       Sign in
     </button>
-    <button className='btn btn-primary' onClick={handleUpClick}>Convert to Uppercase</button>
+    <button className='btn btn-primary mx-1' onClick={handleUpClick}>Convert to Uppercase</button>
+    <button className='btn btn-primary mx-1' onClick={handleLoClick}>Convert to Lowercase</button>
+    <button className='btn btn-primary mx-1' onClick={handleClearClick}>Clear Text</button>
 
     <div className='mb-3'>
         <textarea className='form-control' value={text}  onChange ={handleOnChange} id='myBox' rows= "8"></textarea>
     </div>
   </div>
+  <div className='container my-3'>
+    <h1>Your text summary</h1>
+    <p>{text.split(" ").length} word and {text.length}characters</p>
+    <p>{0.008* text.split(" ").length}Minutes read</p>
+    <h2>Preview</h2>
+    <p>{text}</p>
+  </div>
 </form>
+
   </div>
   )
 }
