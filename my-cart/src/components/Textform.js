@@ -31,6 +31,13 @@ export default function Textform(props) {
     setText(event.target.value);
    }
 
+   const handleCopy = () =>{
+    console.log("I am copy");
+    var text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+   }
+
    
     // text = "new text";  = wrong way to change state
     //setText("new text"); // correct way to change state
@@ -105,10 +112,11 @@ export default function Textform(props) {
     <button type="submit" className="btn btn-primary">
       Sign in
     </button>
-    <button className='btn btn-primary mx-1' onClick={handleUpClick}>Convert to Uppercase</button>
-    <button className='btn btn-primary mx-1' onClick={handleLoClick}>Convert to Lowercase</button>
-    <button className='btn btn-primary mx-1' onClick={handleClearClick}>Clear Text</button>
-
+    <button className='btn btn-primary mx-1 my-1' onClick={handleUpClick}>Convert to Uppercase</button>
+    <button className='btn btn-primary mx-1 my-1' onClick={handleLoClick}>Convert to Lowercase</button>
+    <button className='btn btn-primary mx-1 my-1' onClick={handleClearClick}>Clear Text</button>
+    <button className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy Text</button>
+    
     <div className='mb-3'>
         <textarea className='form-control' value={text}  onChange ={handleOnChange} id='myBox' rows= "8"></textarea>
     </div>
