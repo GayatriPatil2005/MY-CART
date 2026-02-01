@@ -38,6 +38,11 @@ export default function Textform(props) {
     navigator.clipboard.writeText(text.value);
    }
 
+   const handleExtraSpaces = () =>{
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+   }
+
    
     // text = "new text";  = wrong way to change state
     //setText("new text"); // correct way to change state
@@ -116,6 +121,7 @@ export default function Textform(props) {
     <button className='btn btn-primary mx-1 my-1' onClick={handleLoClick}>Convert to Lowercase</button>
     <button className='btn btn-primary mx-1 my-1' onClick={handleClearClick}>Clear Text</button>
     <button className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy Text</button>
+    <button className='btn btn-primary mx-1 my-1' onClick={handleExtraSpaces}>Remove Extra spaces</button>
     
     <div className='mb-3'>
         <textarea className='form-control' value={text}  onChange ={handleOnChange} id='myBox' rows= "8"></textarea>
