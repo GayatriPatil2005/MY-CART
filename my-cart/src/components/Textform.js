@@ -47,28 +47,29 @@ export default function Textform(props) {
     // text = "new text";  = wrong way to change state
     //setText("new text"); // correct way to change state
   return (
-    <div className='container'>
+    <div className='container' style={{color: props.mode=== 'dark'?'white':'black'}}>
     <h1>{props.heading} - {text}</h1>
    <form className="row g-3">
   <div className="col-md-6">
     <label htmlFor="inputEmail4" className="form-label">
       Email
     </label>
-    <input type="email" className="form-control" id="inputEmail4" />
+    <input type="email" className="form-control"value={text} onChange={handleOnChange}  style={{backgroundColor: props.mode=== 'dark'?'#042743':'light',color: props.mode=== 'dark'?'white':'black'}} id="inputEmail4" />
   </div>
   <div className="col-md-6">
     <label htmlFor="inputPassword4" className="form-label">
       Password
     </label>
-    <input type="password" className="form-control" id="inputPassword4" />
+    <input type="password" className="form-control"  value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}} id="inputPassword4" />
   </div>
   <div className="col-12">
-    <label htmlFor="inputAddress" className="form-label">
+    <label htmlFor="inputAddress" className="form-label" value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}}>
       Address
     </label>
     <input
       type="text"
       className="form-control"
+      value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}}
       id="inputAddress"
       placeholder="1234 Main St"
     />
@@ -80,18 +81,19 @@ export default function Textform(props) {
     <input
       type="text"
       className="form-control"
+      value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}}
       id="inputAddress2"
       placeholder="Apartment, studio, or floor"
     />
   </div>
   <div className="col-md-6">
-    <label htmlFor="inputCity" className="form-label">
+    <label htmlFor="inputCity" className="form-label" value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}}>
       City
     </label>
     <input type="text" className="form-control" id="inputCity" />
   </div>
   <div className="col-md-4">
-    <label htmlFor="inputState" className="form-label">
+    <label htmlFor="inputState" className="form-label" value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}}>
       State
     </label>
     <select id="inputState" className="form-select">
@@ -100,14 +102,14 @@ export default function Textform(props) {
     </select>
   </div>
   <div className="col-md-2">
-    <label htmlFor="inputZip" className="form-label">
+    <label htmlFor="inputZip" className="form-label" value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}}>
       Zip
     </label>
     <input type="text" className="form-control" id="inputZip" />
   </div>
   <div className="col-12">
     <div className="form-check">
-      <input className="form-check-input" type="checkbox" id="gridCheck" />
+      <input className="form-check-input" type="checkbox" value={text} onChange={handleOnChange}  style={{backgroundColor: (props.mode=== 'dark'?'#042743':'light')}}  id="gridCheck" />
       <label className="form-check-label" htmlFor="gridCheck">
         Check me out
       </label>
@@ -132,7 +134,7 @@ export default function Textform(props) {
     <p>{text.split(" ").length} word and {text.length}characters</p>
     <p>{0.008* text.split(" ").length}Minutes read</p>
     <h2>Preview</h2>
-    <p>{text}</p>
+    <p>{text.length>0?text:"Enter something in the textbox above to preview it here."}</p>
   </div>
 </form>
 
